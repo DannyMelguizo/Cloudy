@@ -24,18 +24,27 @@
            <div overflow='auto'>
                <?php 
                     echo "<a href='descargarFile.php?file=" .$row['ruta']. "' class='btn btn-info btn-block'>";
+                    ## ICONO PNG
                     if ($row['tipo'] == 'image/png'){
                         echo "<img src='Archivos/".$row['ruta']."' class='archivo'>";
-                    } else if ($row['tipo'] == 'application/pdf'){
+                    } 
+                    ## ICONO PDF
+                    else if ($row['tipo'] == 'application/pdf'){
                         echo "<img src='icos/pdf-icon.png' class='archivo'>";
-                    } else if ($row['tipo'] == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' || $row['tipo'] == 'application/vnd.ms-excel'){
+                    }
+                    ## ICONO EXCEL
+                     else if ($row['tipo'] == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' || $row['tipo'] == 'application/vnd.ms-excel'){
                         echo "<img src='icos/excel-icon.png' class='archivo'>";
-                    } else if ($row['tipo'] == 'image/jpeg'){
+                    }
+                    ## ICONO JPEG
+                    else if ($row['tipo'] == 'image/jpeg'){
                         echo "<img src='Archivos/".$row['ruta']."' class='archivo'>";
-                    } else if ($row['tipo'] == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'){
+                    } 
+                    ## ICONO WORD
+                    else if ($row['tipo'] == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'){
                         echo "<img src='icos/word-icon.png' class='archivo'>";
                     }
-
+                    
                     echo "</a>";
                     echo $row["ruta"];
                 ?>
