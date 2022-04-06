@@ -44,6 +44,11 @@
                     else if ($row['tipo'] == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'){
                         echo "<img src='icos/word-icon.png' class='archivo'>";
                     }
+                    ## ICONO POWERPOINT
+                    else if ($row['tipo'] == 'application/vnd.ms-powerpoint' || $row['tipo'] == 'application/vnd.openxmlformats-officedocument.presentationml.presentation'){
+                        echo "<img src='icos/ppt-icon.png' class='archivo'>";
+                    }
+
                     
                     echo "</a>";
                     echo $row["ruta"];
