@@ -1,6 +1,6 @@
 <?php include("templates/cabecera.php"); 
 
-    include 'admin/config/db.php';
+    include 'db/db.php';
     $conn = conexion();
     $archivos = "SELECT * FROM archivos WHERE usuario='correo@correo.com'";
 
