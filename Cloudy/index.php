@@ -1,6 +1,6 @@
 <?php include("templates/cabecera.php"); 
 
-    include 'admin/config/db.php';
+    include 'db/db.php';
     $conn = conexion();
     $archivos = "SELECT * FROM archivos WHERE usuario='correo@correo.com'";
 
@@ -24,27 +24,27 @@
            <div overflow='auto'>
                <?php 
                     echo "<a href='descargarFile.php?file=" .$row['ruta']. "' class='btn btn-info btn-block'>";
-                    ## ICONO PNG
+                    // ICONO PNG
                     if ($row['tipo'] == 'image/png'){
                         echo "<img src='Archivos/".$row['ruta']."' class='archivo'>";
                     } 
-                    ## ICONO PDF
+                    // ICONO PDF
                     else if ($row['tipo'] == 'application/pdf'){
                         echo "<img src='icos/pdf-icon.png' class='archivo'>";
                     }
-                    ## ICONO EXCEL
+                    // ICONO EXCEL
                      else if ($row['tipo'] == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' || $row['tipo'] == 'application/vnd.ms-excel'){
                         echo "<img src='icos/excel-icon.png' class='archivo'>";
                     }
-                    ## ICONO JPEG
+                    // ICONO JPEG
                     else if ($row['tipo'] == 'image/jpeg'){
                         echo "<img src='Archivos/".$row['ruta']."' class='archivo'>";
                     } 
-                    ## ICONO WORD
+                    // ICONO WORD
                     else if ($row['tipo'] == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'){
                         echo "<img src='icos/word-icon.png' class='archivo'>";
                     }
-                    ## ICONO POWERPOINT
+                    // ICONO POWERPOINT
                     else if ($row['tipo'] == 'application/vnd.ms-powerpoint' || $row['tipo'] == 'application/vnd.openxmlformats-officedocument.presentationml.presentation'){
                         echo "<img src='icos/ppt-icon.png' class='archivo'>";
                     }
