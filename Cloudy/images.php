@@ -25,11 +25,11 @@
            <div overflow='auto'>
                <?php
                     echo "<a href='descargarFile.php?file=" .$row['ruta']. "' class='btn btn-info btn-block'>";
-                    ## ICONO PNG
+                    // ICONO PNG
                     if ($row['tipo'] == 'image/png'){
                         echo "<img src='Archivos/".$row['ruta']."' class='archivo'>";
                     }
-                    ## ICONO JPEG
+                    // ICONO JPEG
                     else if ($row['tipo'] == 'image/jpeg'){
                         echo "<img src='Archivos/".$row['ruta']."' class='archivo'>";
                     }
