@@ -11,8 +11,7 @@ CREATE TABLE archivos (
     usuario VARCHAR(60) NOT NULL,
     fecha DATE NOT NULL,
     ruta VARCHAR(100) NOT NULL,
-    tipo VARCHAR(100) NOT NULL,
-    FOREIGN KEY (usuario) REFERENCES usuarios(correo)
+    tipo VARCHAR(100) NOT NULL
     );
     
 CREATE TABLE papelera (
@@ -20,10 +19,5 @@ CREATE TABLE papelera (
     usuario VARCHAR(60) NOT NULL,
     fecha DATE NOT NULL,
     ruta VARCHAR(100) NOT NULL,
-    tipo VARCHAR(100) NOT NULL,
-    FOREIGN KEY (usuario) REFERENCES archivos(usuario),
-    FOREIGN KEY (fecha) REFERENCES archivos(fecha),
-    FOREIGN KEY (ruta) REFERENCES archivos(ruta),
-    FOREIGN KEY (tipo) REFERENCES archivos(tipo),
-    FOREIGN KEY (id) REFERENCES archivos(id)
+    tipo VARCHAR(100) NOT NULL
     ); 
