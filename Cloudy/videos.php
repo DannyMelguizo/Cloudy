@@ -1,6 +1,6 @@
 <?php include("templates/cabecera.php"); 
 
-    include 'admin/config/db.php';
+    include 'db/db.php';
     $conn = conexion();
     $archivos = "SELECT * FROM archivos WHERE usuario='correo@correo.com'";
 
@@ -25,7 +25,7 @@
            <div overflow='auto'>
                <?php 
                     echo "<a href='descargarFile.php?file=" .$row['ruta']. "' class='btn btn-info btn-block'>";
-                    ## ICONO PNG
+                    // ICONO PNG
                     if ($row['tipo'] == 'image/png'){
                         echo "<img src='Archivos/".$row['ruta']."' class='archivo'>";
                     } 
