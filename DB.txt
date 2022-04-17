@@ -1,23 +1,34 @@
-CREATE DATABASE cloudy;
+CREATE DATABASE IF NOT EXISTS cloudy;
 USE cloudy;
 
-CREATE TABLE usuarios (
+CREATE TABLE IF NOT EXISTS usuarios (
     contraseña VARCHAR(100) NOT NULL,
     correo VARCHAR(100) NOT NULL PRIMARY KEY
 ) ENGINE = 'InnoDB' DEFAULT CHARSET = LATIN1;
 
-CREATE TABLE archivos (
-    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    usuario VARCHAR(60) NOT NULL,
-    fecha DATE NOT NULL,
-    ruta VARCHAR(100) NOT NULL,
-    tipo VARCHAR(100) NOT NULL
-    );
-    
-CREATE TABLE papelera (
-    id INT NOT NULL,
-    usuario VARCHAR(60) NOT NULL,
-    fecha DATE NOT NULL,
-    ruta VARCHAR(100) NOT NULL,
-    tipo VARCHAR(100) NOT NULL
-    ); 
+CREATE TABLE IF NOT EXISTS archivos (
+  id INT(11) NOT NULL AUTO_INCREMENT,
+  usuario VARCHAR(100) NOT NULL,
+  fecha DATE NOT NULL,
+  ruta VARCHAR(100) NOT NULL,
+  tipo VARCHAR(100) NOT NULL,
+  INDEX `usuario_idx` (`usuario` ASC) VISIBLE,
+  CONSTRAINT `usuario`
+    FOREIGN KEY (`usuario`)
+    REFERENCES `cloudy`.`usuarios` (`correo`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+) ENGINE = 'InnoDB';
+
+CREATE TABLE IF NOT EXISTS `cloudy`.`papelera` (
+  usuario VARCHAR(100) NOT NULL,
+  fecha DATE NOT NULL,
+  ruta VARCHAR(100) NOT NULL,
+  tipo VARCHAR(100) NOT NULL,
+  INDEX `usuario_idx` (`usuario` ASC) VISIBLE,
+  CONSTRAINT `usuario`
+    FOREIGN KEY (`usuario`)
+    REFERENCES `cloudy`.`archivos` (`usuario`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+) ENGINE = InnoDB;
