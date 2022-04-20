@@ -55,15 +55,7 @@
                 </div>
             </div>
         </div>
-        <script>
-            $('#enviarLogin').click(function(){
-                var usuario = $('#usuario2').val();
-                var password = $("#password2").val();
-
-                alert(usuario);
-
-            });
-        </script>
+        <script src="css/script.js"></script>
     </div>
     
 </body>
