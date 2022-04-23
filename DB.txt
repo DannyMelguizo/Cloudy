@@ -2,21 +2,30 @@ CREATE DATABASE IF NOT EXISTS cloudy;
 USE cloudy;
 
 CREATE TABLE IF NOT EXISTS usuarios (
-    contraseña VARCHAR(100) NOT NULL,
+    contraseÃ±a VARCHAR(100) NOT NULL,
     correo VARCHAR(100) NOT NULL PRIMARY KEY
-) ENGINE = 'InnoDB' DEFAULT CHARSET = LATIN1;
+) ENGINE = 'InnoDB';
 
 CREATE TABLE IF NOT EXISTS archivos (
-  id INT(11) NOT NULL AUTO_INCREMENT,
   usuario VARCHAR(100) NOT NULL,
   fecha DATE NOT NULL,
   ruta VARCHAR(100) NOT NULL,
-  tipo VARCHAR(100) NOT NULL
-);
+  tipo VARCHAR(100) NOT NULL,
+  CONSTRAINT fk_usuario1
+  FOREIGN KEY (usuario)
+	REFERENCES usuarios(correo)
+		ON DELETE CASCADE
+        ON UPDATE NO ACTION
+)ENGINE = 'InnoDB';
 
 CREATE TABLE IF NOT EXISTS papelera (
   usuario VARCHAR(100) NOT NULL,
   fecha DATE NOT NULL,
   ruta VARCHAR(100) NOT NULL,
-  tipo VARCHAR(100) NOT NULL
-);
+  tipo VARCHAR(100) NOT NULL,
+  CONSTRAINT fk_usuario2
+  FOREIGN KEY (usuario)
+	REFERENCES archivos(usuario)
+		ON DELETE no action
+        ON UPDATE NO ACTION
+)ENGINE = 'InnoDB';
