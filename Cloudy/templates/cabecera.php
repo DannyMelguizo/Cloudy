@@ -3,20 +3,30 @@
     <head>
         <meta charset="utf-8">
         <title>Cloudy</title>
-        <link rel="stylesheet" href="css/es.css">
+        <link rel="stylesheet" href="css/estilos.css">
         <link rel="icon" href="icos/Cloudy.ico">
+        <link rel="stylesheet" href="templates/plugins/sweetalert2.min.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
         <script src="https://kit.fontawesome.com/cc21c1d6c9.js" crossorigin="anonymous"></script>
         <meta name="robots" content="noindex">
 
     </head>
     <body>
+        <script src="jquery/jquery-3.6.0.min.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script src="popper/popper.min.js"></script>
+
+        <script src="templates/plugins/sweetalert2.all.min.js"></script>
+
         <header>
-            <img id="cloudylogo" src="icos/cloudy.png" tittle="Cloudy-Logo">
-            <h1 class="cabeza">Cloudy</h1>
-            <input class="search" type="text" autocomplete="off" placeholder="Buscar archivo">
-            <button class="boton-ajustes">
-                <img id="icono-ajustes"src="icos/menu-hamburguesa.png" title="Ajustes">
-            </button>
+            <div class="cabecera">
+                <img id="cloudylogo" src="icos/cloudy.png" tittle="Cloudy-Logo">
+                <h1 class="cabeza">Cloudy</h1>
+                <input class="search" type="text" autocomplete="off" placeholder="Buscar archivo">
+                <button class="boton-ajustes">
+                    <img id="icono-ajustes"src="icos/menu-hamburguesa.png" title="Ajustes">
+                </button>
+            </div>
         </header>
         
         <div class="menu">
@@ -32,3 +42,5 @@
                 </nav>
             </aside>
         </div>
+
+        
