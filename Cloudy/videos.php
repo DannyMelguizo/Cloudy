@@ -1,8 +1,13 @@
 <?php include("templates/cabecera.php"); 
 
+    session_start();
+
+    $cuenta = $_SESSION['s_usuario'];
+
     include 'db/db.php';
-    $conn = conexion();
-    $archivos = "SELECT * FROM archivos WHERE usuario='correo@correo.com'";
+    $objeto = new conexion();
+    $conn = $objeto->connexion();
+    $archivos = "SELECT * FROM archivos WHERE usuario='$cuenta'";
 
 
 ?>
@@ -16,11 +21,11 @@
         </div>
         
         <div class="archivos-usuario container">
-            <?php $resultado = mysqli_query($conn, $archivos);
+            <?php $resultado = $conn->query($archivos);
 
             while($row = mysqli_fetch_assoc($resultado)) {
                 if($row['tipo'] == 'video/x-msvideo' || $row['tipo'] == 'video/mp4' || $row['tipo'] == 'video/x-ms-wmv'){
-                    $tipo = $row
+                    
             ?>
            <div overflow='auto'>
                <?php 

@@ -1,11 +1,18 @@
 <?php include("templates/cabecera.php"); 
+    
+    session_start();
+
+    $cuenta = $_SESSION['s_usuario'];
 
     include 'db/db.php';
-    $conn = conexion();
-    $archivos = "SELECT * FROM archivos WHERE usuario='correo@correo.com'";
+    $objeto = new conexion();
+    $conn = $objeto->connexion();
+    $archivos = "SELECT * FROM archivos WHERE usuario='$cuenta'";
+
 
 
 ?>
+
     <article class="archivos">
         <div class="boton-subir">
             <a href="subir.php">
@@ -16,10 +23,10 @@
         </div>
         
         <div class="archivos-usuario container">
-            <?php $resultado = mysqli_query($conn, $archivos);
+            <?php $resultado = $conn->query($archivos);
 
             while($row = mysqli_fetch_assoc($resultado)) {
-                $tipo = $row
+                
             ?>
            <div overflow='auto'>
                <?php 
@@ -56,6 +63,8 @@
            </div>
             <?php } mysqli_free_result($resultado);?>
         </div>
+
+
     </article>    
 
 <?php include("templates/pie.php"); ?>

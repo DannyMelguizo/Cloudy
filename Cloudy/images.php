@@ -1,8 +1,13 @@
 <?php include("templates/cabecera.php"); 
 
+    session_start();
+
+    $cuenta = $_SESSION['s_usuario'];
+
     include 'db/db.php';
-    $conn = conexion();
-    $archivos = "SELECT * FROM archivos WHERE usuario='correo@correo.com'";
+    $objeto = new conexion();
+    $conn = $objeto->connexion();
+    $archivos = "SELECT * FROM archivos WHERE usuario='$cuenta'";
 
 
 ?>
@@ -16,20 +21,20 @@
         </div>
         
         <div class="archivos-usuario container">
-            <?php $resultado = mysqli_query($conn, $archivos);
+            <?php $resultado = $conn->query($archivos);
 
             while($row = mysqli_fetch_assoc($resultado)) {
                 if($row['tipo'] == 'image/png' || $row['tipo'] == 'image/jpeg'){
-                    $tipo = $row
+                
             ?>
            <div overflow='auto'>
                <?php
                     echo "<a href='descargarFile.php?file=" .$row['ruta']. "' class='btn btn-info btn-block'>";
-                    // ICONO PNG
+                    ## ICONO PNG
                     if ($row['tipo'] == 'image/png'){
                         echo "<img src='Archivos/".$row['ruta']."' class='archivo'>";
                     }
-                    // ICONO JPEG
+                    ## ICONO JPEG
                     else if ($row['tipo'] == 'image/jpeg'){
                         echo "<img src='Archivos/".$row['ruta']."' class='archivo'>";
                     }

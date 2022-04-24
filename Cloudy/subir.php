@@ -2,9 +2,12 @@
 
 include("templates/cabecera.php");
 
-include("admin/config/db.php");
+include("db/db.php");
 
-$conn = conexion();
+$objeto = new conexion();
+
+$conn = $objeto->connexion();
+
 if (isset($_POST['submit'])){
     if(is_uploaded_file($_FILES['archivo']['tmp_name'])){
         
@@ -29,10 +32,8 @@ if (isset($_POST['submit'])){
 
 ?>
 
-    <script>window</script>
-
     <form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST" enctype="multipart/form-data">
-        <div class="subir">
+        <div class="subir justify-content-center text-center">
             <label for="archivo">
                 <i class="fa-solid fa-upload"></i> <br><br><br>
                 <b id="subir">Cargar un archivo desde el ordenador.</b>
