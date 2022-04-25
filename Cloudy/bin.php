@@ -1,12 +1,18 @@
-<?php include("templates/cabecera.php"); 
+<?php 
+    include("templates/cabecera.php");
 
     session_start();
 
+    //Recibe el usuario
     $cuenta = $_SESSION['s_usuario'];
 
     include 'db/db.php';
+
+    //Se crea conexion con la base de datos
     $objeto = new conexion();
     $conn = $objeto->connexion();
+
+    //Busqueda en la base de datos
     $archivos = "SELECT * FROM papelera WHERE usuario='$cuenta'";
 
 ?>
@@ -15,9 +21,10 @@
     <article class="archivos">
 
         <?php
-
+            //Almacena el resultado de la busqueda en una variable
             $resultado = $conn->query($archivos);
 
+            //En caso de no encontrar resultados, imprime que la papelera esta vacia
             if($resultado->num_rows == 0){
         
         ?>
@@ -34,7 +41,8 @@
 
         <div class="archivos-usuario container">
             <?php
-
+            
+                //Imprime elemento por elemento, encontrado en la variable resultado
                 while($row = mysqli_fetch_assoc($resultado)) {
 
             ?>

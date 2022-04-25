@@ -2,16 +2,23 @@
 
     session_start();
 
+    //Recibe el usuario
     $cuenta = $_SESSION['s_usuario'];
 
     include 'db/db.php';
+
+    //Se crea conexion con la base de datos
     $objeto = new conexion();
     $conn = $objeto->connexion();
+
+    //Busqueda en la base de datos
     $archivos = "SELECT * FROM archivos WHERE usuario='$cuenta'";
 
 
 ?>
     <article class="archivos">
+
+        <!-- Boton para subir archivos -->
         <div class="boton-subir">
             <a href="subir.php">
                 <div class="boton-contenido">
@@ -21,9 +28,15 @@
         </div>
         
         <div class="archivos-usuario container">
-            <?php $resultado = $conn->query($archivos);
+            <?php 
 
+            //Se almacena el resultado de la busqueda en una variable
+            $resultado = $conn->query($archivos);
+
+            //Imprime elemento por elemento, encontrado en la variable resultado
             while($row = mysqli_fetch_assoc($resultado)) {
+
+                //Solamente imprime los archivos que sean PNG, JPEG
                 if($row['tipo'] == 'image/png' || $row['tipo'] == 'image/jpeg'){
                 
             ?>
@@ -38,6 +51,7 @@
                     else if ($row['tipo'] == 'image/jpeg'){
                         echo "<img src='Archivos/".$row['ruta']."' class='archivo'>";
                     }
+                    
 
                     
                     echo "</a>";

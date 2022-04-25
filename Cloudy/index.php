@@ -1,19 +1,25 @@
-<?php include("templates/cabecera.php"); 
-    
+<?php 
+    include("templates/cabecera.php");
+
     session_start();
 
+    //Recibe el usuario
     $cuenta = $_SESSION['s_usuario'];
 
     include 'db/db.php';
+
+    //Se crea conexion con la base de datos
     $objeto = new conexion();
     $conn = $objeto->connexion();
+
+    //Busqueda en la base de datos
     $archivos = "SELECT * FROM archivos WHERE usuario='$cuenta'";
-
-
 
 ?>
 
     <article class="archivos">
+
+        <!-- Boton para subir archivos -->
         <div class="boton-subir">
             <a href="subir.php">
                 <div class="boton-contenido">
@@ -23,8 +29,12 @@
         </div>
         
         <div class="archivos-usuario container">
-            <?php $resultado = $conn->query($archivos);
+            <?php 
 
+            //Se almacena el resultado de la busqueda en una variable
+            $resultado = $conn->query($archivos);
+
+            //Imprime elemento por elemento, encontrado en la variable resultado
             while($row = mysqli_fetch_assoc($resultado)) {
                 
             ?>

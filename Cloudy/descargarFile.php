@@ -1,9 +1,15 @@
 <?php
+
+//Se recibe el archivo a descargar
 $archivo = $_REQUEST['file'];
 
+
 $rutaArchivo = "archivos/";
+
+//Se almacena la ruta del archivo a descargar
 $path = $rutaArchivo.$archivo;
 $type = '';
+
 
 if (is_file($path)) {
  $size = filesize($path);
