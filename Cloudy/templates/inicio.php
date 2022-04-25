@@ -19,6 +19,7 @@
     <script src="jquery/jquery-3.6.0.min.js"></script>
     <script src="templates/plugins/sweetalert2.all.min.js"></script>
     <header>
+        <!-- Interfaz de la cabecera -->
         <div class="cabecera">
             <img id="cloudylogo" src="icos/cloudy.png" tittle="Cloudy-Logo">
             <h1 class="cabeza">Cloudy</h1>
