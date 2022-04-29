@@ -1,12 +1,11 @@
 <?php 
     include("templates/cabecera.php");
+    include 'db/db.php';
 
     session_start();
 
     //Recibe el usuario
     $cuenta = $_SESSION['s_usuario'];
-
-    include 'db/db.php';
 
     //Se crea conexion con la base de datos
     $objeto = new conexion();
