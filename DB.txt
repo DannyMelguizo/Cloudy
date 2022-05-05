@@ -11,7 +11,8 @@ CREATE TABLE IF NOT EXISTS archivos (
   usuario VARCHAR(100) NOT NULL,
   fecha DATE NOT NULL,
   ruta VARCHAR(100) NOT NULL,
-  tipo VARCHAR(100) NOT NULL,
+  tipo_mime VARCHAR(100) NOT NULL,
+  tipo VARCHAR(50) NOT NULL,
   CONSTRAINT fk_usuario1
   FOREIGN KEY (usuario)
 	REFERENCES usuarios(correo)
@@ -23,10 +24,11 @@ CREATE TABLE IF NOT EXISTS papelera (
   usuario VARCHAR(100) NOT NULL,
   fecha DATE NOT NULL,
   ruta VARCHAR(100) NOT NULL,
-  tipo VARCHAR(100) NOT NULL,
+  tipo_mime VARCHAR(100) NOT NULL,
+  tipo VARCHAR(50) NOT NULL,
   CONSTRAINT fk_usuario2
   FOREIGN KEY (usuario)
 	REFERENCES archivos(usuario)
-		ON DELETE no action
+		ON DELETE NO action
         	ON UPDATE NO ACTION
 )ENGINE = 'InnoDB';
