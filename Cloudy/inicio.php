@@ -27,7 +27,7 @@
 
         <div class="container-form sign-in">
             <!-- Formulario para iniciar sesion -->
-            <form id='iniciarSesion' class="formulario" action="" method="POST">
+            <form id='iniciarSesion' class="formulario" action="" method="POST" onkeypress="if(event.keyCode == 13) pulsarLogin()">
                 <h2 class="message-form">Iniciar Sesión</h2>
                 <input type="email" id="usuario2" placeholder="Email">
                 <input type="password" id="password2" placeholder="Contraseña">
@@ -44,6 +44,7 @@
             </div>
         </div>
     </div>
+
 
     
     <script src="css/inicio.js"></script>

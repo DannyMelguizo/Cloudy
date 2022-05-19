@@ -8,6 +8,9 @@
     //Recibe el usuario
     $cuenta = $_SESSION['s_usuario'];
 
+    if(isset($cuenta)){
+
+
     //Se crea conexion con la base de datos
     $objeto = new conexion();
     $conn = $objeto->connexion();
@@ -134,4 +137,13 @@
 
     
         
-<?php include("templates/pie.php"); ?>
+<?php 
+
+    
+    } else {
+
+        header('Location: inicio.php');
+
+    }
+
+include("templates/pie.php"); ?>

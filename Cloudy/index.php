@@ -8,12 +8,15 @@
     //Recibe el usuario
     $cuenta = $_SESSION['s_usuario'];
 
-    //Se crea conexion con la base de datos
-    $objeto = new conexion();
-    $conn = $objeto->connexion();
 
-    //Busqueda en la base de datos
-    $archivos = "SELECT * FROM archivos WHERE usuario='$cuenta'";
+    if(isset($cuenta)){
+
+        //Se crea conexion con la base de datos
+        $objeto = new conexion();
+        $conn = $objeto->connexion();
+
+        //Busqueda en la base de datos
+        $archivos = "SELECT * FROM archivos WHERE usuario='$cuenta'";
 
 ?>
 
@@ -120,4 +123,12 @@
 
     </article>    
 
-<?php include("templates/pie.php"); ?>
+<?php 
+    } else {
+
+        header('Location: inicio.php');
+
+    }
+
+
+include("templates/pie.php"); ?>
