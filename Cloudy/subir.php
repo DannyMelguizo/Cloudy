@@ -1,6 +1,8 @@
 <?php 
 
-include("templates/cabecera.php");
+include("templates/cabecera-menu.php");
+
+include 'db/db.php';
 
 
 session_start();
@@ -8,8 +10,6 @@ session_start();
 //Recibe el usuario
 $cuenta = $_SESSION['s_usuario'];
 
-
-include 'db/db.php';
 
 //Se crea conexion con la base de datos
 $objeto = new conexion();
@@ -30,20 +30,26 @@ if (isset($_POST['submit'])){
         //Fecha actual en la que se subira el archivo
         $fecha = date("y/m/d");
 
+        $tipo = explode("/", $_FILES['archivo']['type']);
+
         //Almacena el archivo subido en una ruta especifica
         if(move_uploaded_file($_FILES['archivo']['tmp_name'], $subir)){
 
             //Insercion de archivo a la base de datos
-            $query = "INSERT INTO archivos(usuario, fecha, ruta, tipo) VALUES ('$cuenta', '$fecha', '".$_FILES['archivo']['name']."', '".$_FILES['archivo']['type']."')";
+            $query = "INSERT INTO archivos(usuario, fecha, ruta, tipo_mime, tipo) VALUES ('$cuenta', '$fecha', '".$_FILES['archivo']['name']."', '".$_FILES['archivo']['type']."','".$tipo[0]."')";
 
 
             //Redirecciona al usuario a la pagina principal
             if(mysqli_query($conn, $query)){
-                echo "<script src='css/redireccionar.js'></script>";
+                echo '<script type="text/JavaScript"> redireccionar(); </script>';
             }
 
         }
 
+
+    } else {
+
+        echo '<script type="text/JavaScript"> noHayArchivo(); </script>';
 
     }
 }

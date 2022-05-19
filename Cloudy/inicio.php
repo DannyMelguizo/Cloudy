@@ -20,7 +20,7 @@
                 <input type="email" id="usuario1" placeholder="Email">
                 <input type="password" id="password1" placeholder="Contraseña">
                 <input type="password" id="confirmar" placeholder="Confirmar">
-                <input id="enviarCreate" type="button" value="Registrarse">
+                <input id="enviarCreate" type="button" value="Bloqueado">
             </form>
         </div>
 

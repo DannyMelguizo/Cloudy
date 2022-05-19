@@ -1,12 +1,12 @@
 <?php 
-    include("templates/cabecera.php");
+    include("templates/cabecera-menu.php");
+
+    include 'db/db.php';
 
     session_start();
 
     //Recibe el usuario
     $cuenta = $_SESSION['s_usuario'];
-
-    include 'db/db.php';
 
     //Se crea conexion con la base de datos
     $objeto = new conexion();
@@ -40,36 +40,79 @@
             ?>
            <div overflow='auto'>
                <?php 
-                    echo "<a href='descargarFile.php?file=" .$row['ruta']. "' class='btn btn-info btn-block'>";
+
+                    $ruta = $row["ruta"];
+
+                    echo "<a onclick='acciones(ruta)' class='btn btn-info btn-block'>";
                     // ICONO PNG
-                    if ($row['tipo'] == 'image/png'){
+                    if ($row['tipo_mime'] == 'image/png'){
                         echo "<img src='Archivos/".$row['ruta']."' class='archivo'>";
                     } 
                     // ICONO PDF
-                    else if ($row['tipo'] == 'application/pdf'){
+                    else if ($row['tipo_mime'] == 'application/pdf'){
                         echo "<img src='icos/pdf-icon.png' class='archivo'>";
                     }
                     // ICONO EXCEL
-                     else if ($row['tipo'] == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' || $row['tipo'] == 'application/vnd.ms-excel'){
+                     else if ($row['tipo_mime'] == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' || $row['tipo_mime'] == 'application/vnd.ms-excel'){
                         echo "<img src='icos/excel-icon.png' class='archivo'>";
                     }
                     // ICONO JPEG
-                    else if ($row['tipo'] == 'image/jpeg'){
+                    else if ($row['tipo_mime'] == 'image/jpeg'){
                         echo "<img src='Archivos/".$row['ruta']."' class='archivo'>";
                     } 
                     // ICONO WORD
-                    else if ($row['tipo'] == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'){
+                    else if ($row['tipo_mime'] == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'){
                         echo "<img src='icos/word-icon.png' class='archivo'>";
                     }
                     // ICONO POWERPOINT
-                    else if ($row['tipo'] == 'application/vnd.ms-powerpoint' || $row['tipo'] == 'application/vnd.openxmlformats-officedocument.presentationml.presentation'){
+                    else if ($row['tipo_mime'] == 'application/vnd.ms-powerpoint' || $row['tipo_mime'] == 'application/vnd.openxmlformats-officedocument.presentationml.presentation'){
                         echo "<img src='icos/ppt-icon.png' class='archivo'>";
                     }
+                    // ICONO AVI
+                    else if($row['tipo_mime'] == 'video/x-msvideo' || $row['tipo_mime'] == 'video/avi' ){
+                        echo "<img src='icos/avi-icon.png' class='archivo'>";
+                    }
+                    // ICONO MP3
+                    else if($row['tipo_mime'] == 'audio/mpeg'){
+                        echo "<img src='icos/mp3-icon.png' class='archivo'>";
+                    }
+                    // ICONO COMPRIMIDO
+                    else if($row['tipo_mime'] == 'application/x-7z-compressed' || $row['tipo_mime'] == 'application/x-rar-compressed'|| $row['tipo_mime'] == 'application/zip'){
+                        echo "<img src='icos/comprimido-icon.png' class='archivo'>";
+                    }
+                    // ICONO EXE
+                    else if($row['tipo_mime'] == 'application/vnd.microsoft.portable-executable' || $row['tipo_mime'] == 'application/x-msdownload'){
+                        echo "<img src='icos/exe-icon.png' class='archivo'>";
+                    }
+                    // ICONO MP4
+                    else if($row['tipo_mime'] == 'video/mp4'){
+                        echo "<img src='icos/mp4-icon.png' class='archivo'>";
+                    }
+                    // ICONO WMV
+                    else if($row['tipo_mime'] == 'video/x-ms-wmv'){
+                        echo "<img src='icos/wmv-icon.png' class='archivo'>";
+                    }
+                    // ICONO UNKNOWN
+                    else {
+                        echo "<img src='icos/unknown-icon.png' class='archivo'>";
+                    }
+                    
 
                     
                     echo "</a>";
                     echo $row["ruta"];
                 ?>
+
+                <script>
+
+                <?php
+
+                    echo "var ruta = '$ruta';";
+
+                ?>
+
+                </script>
+                
            </div>
             <?php } mysqli_free_result($resultado);?>
         </div>
