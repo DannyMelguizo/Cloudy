@@ -68,3 +68,15 @@ function redireccionar(){
         window.location.href = "index.php"
     }, 2500);
 }
+
+
+function pulsarLogin() {
+    var boton = document.getElementById("enviarLogin");
+    boton.click();
+}
+
+
+function pulsarCreate() {
+    var boton = document.getElementById("enviarCreate");
+    boton.click();
+}
