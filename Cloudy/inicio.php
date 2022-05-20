@@ -15,12 +15,12 @@
             </div>
 
             <!-- Formulario para crear una cuenta -->
-            <form id='crearCuenta' class="formulario" action="" method="POST">
+            <form id='crearCuenta' class="formulario" action="" method="POST" onkeypress="if(event.keyCode == 13) pulsarCreate()">
                 <h2 class="message-form">Crear Cuenta</h2>
                 <input type="email" id="usuario1" placeholder="Email">
                 <input type="password" id="password1" placeholder="Contraseña">
                 <input type="password" id="confirmar" placeholder="Confirmar">
-                <input id="enviarCreate" type="button" value="Bloqueado">
+                <input id="enviarCreate" type="button" value="Registrar">
             </form>
         </div>
 
@@ -48,6 +48,7 @@
 
     
     <script src="css/inicio.js"></script>
+    <script src="css/create.js"></script>
     <script src="css/login.js"></script>
 
 <?php
