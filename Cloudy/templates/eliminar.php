@@ -19,6 +19,8 @@ if(is_file($directorio)){
 
     $conn->query("DELETE FROM papelera WHERE usuario='$cuenta' AND ruta = '$nombre'");
 
+    unlink($directorio);
+
     header("Expires: 0");
     header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
     header('Location: ../index.php');
