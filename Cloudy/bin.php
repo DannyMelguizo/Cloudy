@@ -42,7 +42,7 @@
             } else {
         ?>
 
-        <div class="archivos-usuario container">
+        <div id="container" class="archivos-usuario container">
             <?php
             
                 //Imprime elemento por elemento, encontrado en la variable resultado
@@ -54,7 +54,7 @@
 
                     $ruta = $row["ruta"];                    
 
-                    echo "<a onclick='accionesBin(ruta)' class='btn btn-info btn-block'>";
+                    echo '<a name="archivo" class="btn btn-info btn-block" value="'.$ruta.'">';
                     // ICONO PNG
                     if ($row['tipo_mime'] == 'image/png'){
                         echo "<img src='papelera/".$row['ruta']."' class='archivo'>";
@@ -114,16 +114,6 @@
                     echo $row["ruta"];
                 ?>
 
-                <script>
-
-                <?php
-
-                    echo "var ruta = '$ruta';";
-
-                ?>
-
-                </script>
-
            </div>
         <?php 
             
@@ -133,8 +123,6 @@
         ?>
         </div>
     </article>
-
-
     
         
 <?php 
@@ -146,4 +134,10 @@
 
     }
 
-include("templates/pie.php"); ?>
+?>
+
+    <script src="css/accionesBin.js"></script>
+
+    </body>
+
+</html>

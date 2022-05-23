@@ -21,7 +21,7 @@
 ?>
     <article class="archivos">
         
-        <div class="archivos-usuario container">
+        <div id="container" class="archivos-usuario container">
             <?php 
 
             //Se almacena el resultado de la busqueda en una variable
@@ -40,23 +40,10 @@
 
                         $ruta = $row["ruta"];
 
-                        echo "<a onclick='acciones(ruta)' class='btn btn-info btn-block' >";
+                        echo '<a name="archivo" class="btn btn-info btn-block" value="'.$ruta.'">';
 
                             echo "<img src='Archivos/".$row['ruta']."' class='archivo'>";
 
-                    ?>
-                        <script>
-
-                            <?php
-
-                                echo "var ruta = '$ruta';";
-
-                            ?>
-
-                        </script>
-
-
-                    <?php
                             
                         echo "</a>";
                         echo $row["ruta"];
@@ -78,6 +65,8 @@
             ?>
         </div>
     </article>
+
+    <script src="css/acciones.js"></script>
 
 <?php 
     } else {

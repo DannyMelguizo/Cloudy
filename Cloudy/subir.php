@@ -4,7 +4,12 @@ include("templates/cabecera-menu.php");
 
 include 'db/db.php';
 
+?>
 
+<script src="css/accionesSubir.js"></script>
+
+
+<?php
 session_start();
 
 //Recibe el usuario
@@ -52,6 +57,7 @@ if (isset($_POST['submit'])){
         echo '<script type="text/JavaScript"> noHayArchivo(); </script>';
 
     }
+
 }
 
 ?>
@@ -71,4 +77,6 @@ if (isset($_POST['submit'])){
 
     </form>
 
-<?php include("templates/pie.php")?>
+    </body>
+
+</html>

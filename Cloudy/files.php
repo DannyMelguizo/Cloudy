@@ -21,7 +21,8 @@
 
     <article class="archivos">
         
-        <div class="archivos-usuario container">
+        <div id="container" class="archivos-usuario container">
+
             <?php 
             
             //Se almacena el resultado de la busqueda en una variable
@@ -35,7 +36,8 @@
 
                     $ruta = $row["ruta"];
 
-                    echo "<a onclick='acciones(ruta)' class='btn btn-info btn-block'>";
+                    echo '<a name="archivo" class="btn btn-info btn-block" value="'.$ruta.'">';
+
                     // ICONO PDF
                     if ($row['tipo_mime'] == 'application/pdf'){
                         echo "<img src='icos/pdf-icon.png' class='archivo'>";
@@ -65,30 +67,23 @@
                         echo "<img src='icos/unknown-icon.png' class='archivo'>";
                     }
 
-                    
                     echo "</a>";
-                    echo $row["ruta"];
+                    echo $ruta;
             
                 ?>
 
-                <script>
-
-                <?php
-
-                    echo "var ruta = '$ruta';";
-
-                ?>
-
-                </script>
            </div>
             <?php
 
             }
             mysqli_free_result($resultado);
             ?>
+
+
         </div>
     </article>    
 
+    <script src="css/acciones.js"></script>
         
 <?php 
 

@@ -21,7 +21,7 @@
 ?>
     <article class="archivos">
         
-        <div class="archivos-usuario container">
+        <div id="container" class="archivos-usuario container">
             <?php 
             
             //Se almacena el resultado de la busqueda en una variable
@@ -34,7 +34,7 @@
 
                     $ruta = $row["ruta"];
 
-                    echo "<a onclick='acciones(ruta)' class='btn btn-info btn-block'>";
+                    echo '<a name="archivo" class="btn btn-info btn-block" value="'.$ruta.'">';
                     // ICONO AVI
                     if($row['tipo_mime'] == 'video/x-msvideo' || $row['tipo_mime'] == 'video/avi' ){
                         echo "<img src='icos/avi-icon.png' class='archivo'>";
@@ -75,6 +75,8 @@
             ?>
         </div>
     </article>    
+
+    <script src="css/acciones.js"></script>
 
 <?php 
 
