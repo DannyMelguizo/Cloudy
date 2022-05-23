@@ -37,5 +37,7 @@ function archivo(elemento){
 
         acciones(ruta);
 
+        console.log(ruta);
+        
     }
 }
