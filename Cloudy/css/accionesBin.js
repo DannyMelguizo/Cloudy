@@ -31,7 +31,7 @@ function archivo(elemento){
 
     if(elemento.target.tagName == "IMG"){
 
-        var ruta = elemento.path[1].attributes[2].value;
+        var ruta = elemento.path[1].attributes[3].value;
 
         accionesBin(ruta);
 
