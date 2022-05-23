@@ -2,31 +2,29 @@ var archivos = document.getElementById('container')
 
 archivos.addEventListener('click', archivo)
 
-function acciones(ruta){
-    
-
+function accionesBin(ruta){
     Swal.fire({
         showDenyButton: true,
         showCancelButton: true,
-        confirmButtonText: 'Descargar',
+        confirmButtonText: 'Restaurar',
         denyButtonText: 'Eliminar',
     }).then((result) => {
 
-        //Descarga el archivo
+        //Restaura el archivo
         if (result.isConfirmed) {
             
-            window.location.href = "templates/descargarFile.php?file=" + ruta;
+            window.location.href = "templates/restaurarFile.php?file=" + ruta;
 
         } 
-        //Elimina el archivo
+        //Elimina permanentemente el archivo
         else if (result.isDenied) {
             
-            window.location.href = "templates/eliminarFile.php?file=" + ruta;
+            window.location.href = "templates/eliminar.php?file=" + ruta;
+
 
         }
     })
 }
-
 
 //Obtiene la ruta del archivo
 function archivo(elemento){
@@ -35,7 +33,7 @@ function archivo(elemento){
 
         var ruta = elemento.path[1].attributes[2].value;
 
-        acciones(ruta);
+        accionesBin(ruta);
 
     }
 }

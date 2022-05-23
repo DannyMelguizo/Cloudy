@@ -1,3 +1,5 @@
+
+//Logear un usuario
 $("#enviarLogin").click(function(event){
     event.preventDefault();
 

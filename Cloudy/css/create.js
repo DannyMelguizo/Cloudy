@@ -1,3 +1,5 @@
+
+//Crear una cuenta
 $("#enviarCreate").click(function(event){
     event.preventDefault();
 
@@ -35,7 +37,7 @@ $("#enviarCreate").click(function(event){
         })
         .done(function(respuesta){
 
-            //Si el usuario se encuentra registrado, imprime un mensaje y redirige
+            //Si el usuario se encuentra registrado
             if(respuesta == "Si"){
                 Swal.fire({
                     icon: 'error',
@@ -44,7 +46,7 @@ $("#enviarCreate").click(function(event){
                 });              
 
             } 
-            //Si el usuario no se encuentra registrado, imprime un error
+            //Si el usuario no se encuentra registrado
             else {
                 Swal.fire({
                     icon: 'success',

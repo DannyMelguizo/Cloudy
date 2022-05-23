@@ -42,18 +42,19 @@ header {
     width: 4.5%;
     float: left;
     background: #fff;
-    margin: 3% 0% 3% 7%;
+    margin: 3% 0% 3% 47%;
     border: none;
 }
 
-.search {
-    font-size: 20px;
-    font-family: 'Microsoft Sans Serif', sans-serif;
-    border: 2px solid #BDC3C7;
-    width: 35%;
-    text-align: center;
-    float: left;
-    margin: 4% 4% 5% 2%;
+.dropdown-menu {
+    margin: 15px;
+    background: #262a34;
+    color: white;
+    
+}
+
+.menuperfil {
+    color: white;
 }
 
 .menu {
@@ -172,8 +173,9 @@ header {
 
 .subir i { 
     position: absolute;
+    left: 45%;
+    top: 20%;
     font-size: 3rem;
-    margin: 10% 47%;
 }
 
 .boton-subir:hover {
@@ -183,7 +185,8 @@ header {
 #subir {
     position: absolute;
     font-size: 1.5rem;
-    margin: 18% 0% 18% 22%;
+    left: 20%;
+    top: 50%;
 }
 
 
@@ -193,6 +196,11 @@ header {
     left: 50%;
     width: 10%;
     height: 6%;
+}
+
+#archivo{
+    background: white;
+    border: none;
 }
 
 .submit input{

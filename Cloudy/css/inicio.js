@@ -1,3 +1,4 @@
+
 const $btnSignIn= document.querySelector('.sign-in-btn'),
       $btnSignUp = document.querySelector('.sign-up-btn'),  
       $signUp = document.querySelector('.sign-up'),
