@@ -23,7 +23,7 @@ if(is_file($directorio)){
 
     header("Expires: 0");
     header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
-    header('Location: ../index.php');
+    header('Location: ../bin.php');
 
 } else {
   die("El archivo no existe.");

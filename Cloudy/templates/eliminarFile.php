@@ -35,7 +35,15 @@ if(is_file($directorio)){
 
 
   if(file_exists($ruta_pap)){
+    $conn->query("SET FOREIGN_KEY_CHECKS = 0");
+    $conn->query("DELETE FROM archivos WHERE usuario='$cuenta' AND ruta = '$nombre'");
+    $conn->query("SET FOREIGN_KEY_CHECKS = 1");
+
+    unlink($directorio);
+
     header('Location: ../index.php');
+
+
   } else {
 
     $insert = $conn->query("INSERT INTO papelera(usuario, fecha, ruta, tipo_mime, tipo) VALUES ('$cuenta', '$fecha', '$nombre', '$tipo_mime', '$tipo')");

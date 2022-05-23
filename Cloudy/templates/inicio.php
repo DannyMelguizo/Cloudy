@@ -18,7 +18,7 @@
 <body>
     <script src="jquery/jquery-3.6.0.min.js"></script>
     <script src="templates/plugins/sweetalert2.all.min.js"></script>
-    <script src="css/acciones.js"></script>
+    <script src="css/accionesLogin.js"></script>
 
     <header>
         <!-- Interfaz de la cabecera -->
