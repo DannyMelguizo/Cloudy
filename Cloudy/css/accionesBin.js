@@ -35,5 +35,7 @@ function archivo(elemento){
 
         accionesBin(ruta);
 
+        console.log(ruta);
+        
     }
 }
