@@ -40,7 +40,7 @@
 
                         $ruta = $row["ruta"];
 
-                        echo '<a name="archivo" class="btn btn-info btn-block" value="'.$ruta.'">';
+                        echo '<a id="archivo" name="archivo" class="btn btn-info btn-block" value="'.$ruta.'">';
 
                             echo "<img src='Archivos/".$row['ruta']."' class='archivo'>";
 

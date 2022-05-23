@@ -54,7 +54,7 @@
 
                     $ruta = $row["ruta"];                    
 
-                    echo '<a name="archivo" class="btn btn-info btn-block" value="'.$ruta.'">';
+                    echo '<a id="archivo" name="archivo" class="btn btn-info btn-block" value="'.$ruta.'">';
                     // ICONO PNG
                     if ($row['tipo_mime'] == 'image/png'){
                         echo "<img src='papelera/".$row['ruta']."' class='archivo'>";
@@ -137,6 +137,9 @@
 ?>
 
     <script src="css/accionesBin.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/646c794df3.js"></script>
 
     </body>
 

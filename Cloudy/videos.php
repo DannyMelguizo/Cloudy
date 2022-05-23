@@ -34,7 +34,7 @@
 
                     $ruta = $row["ruta"];
 
-                    echo '<a name="archivo" class="btn btn-info btn-block" value="'.$ruta.'">';
+                    echo '<a id="archivo" name="archivo" class="btn btn-info btn-block" value="'.$ruta.'">';
                     // ICONO AVI
                     if($row['tipo_mime'] == 'video/x-msvideo' || $row['tipo_mime'] == 'video/avi' ){
                         echo "<img src='icos/avi-icon.png' class='archivo'>";

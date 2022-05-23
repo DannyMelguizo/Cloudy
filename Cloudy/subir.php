@@ -15,6 +15,8 @@ session_start();
 //Recibe el usuario
 $cuenta = $_SESSION['s_usuario'];
 
+if(isset($cuenta)){
+
 
 //Se crea conexion con la base de datos
 $objeto = new conexion();
@@ -60,6 +62,12 @@ if (isset($_POST['submit'])){
 
 }
 
+} else {
+
+    header('Location: inicio.php');
+
+}
+
 ?>
 
     <!-- Formulario de subida de archivos -->
@@ -80,3 +88,8 @@ if (isset($_POST['submit'])){
     </body>
 
 </html>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/646c794df3.js"></script>
+
